@@ -1,8 +1,8 @@
 # PSoC 6 MCU: IotExpert FreeRTOS Template
 
-This is a minimal starter application template for PSoC® 6 MCU devices.  This template uses
+This is a minimal starter application template for PSoC® 6 MCU devices.  This template uses the following libraries
 * Retarget I/O
-* FreeRTOS
+* FreeRTOS (it includes a FreeRTOSConfig.h)
 
 ## Supported Kits
 
