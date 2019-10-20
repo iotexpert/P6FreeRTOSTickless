@@ -42,7 +42,21 @@
 #include "cy_pdl.h"
 #include "cyhal.h"
 #include "cybsp.h"
+#include "cy_retarget_io.h"
+#include <stdio.h>
+#include "FreeRTOS.h"
+#include "task.h"
 
+void blinkTask(void *arg)
+{
+    cyhal_gpio_init(CYBSP_USER_LED,CYHAL_GPIO_DIR_OUTPUT,CYHAL_GPIO_DRIVE_STRONG,0);
+
+    for(;;)
+    {
+    	cyhal_gpio_toggle(CYBSP_USER_LED);
+    	vTaskDelay(500);
+    }
+}
 
 int main(void)
 {
@@ -57,9 +71,12 @@ int main(void)
 
     __enable_irq();
 
-    for(;;)
-    {
-    }
+    cy_retarget_io_init(CYBSP_DEBUG_UART_TX, CYBSP_DEBUG_UART_RX, CY_RETARGET_IO_BAUDRATE);
+
+    xTaskCreate(blinkTask, "blinkTask", 128,0,3, 0);
+    vTaskStartScheduler();
+
+
 }
 
 /* [] END OF FILE */
