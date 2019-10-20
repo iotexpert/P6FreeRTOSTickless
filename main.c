@@ -47,6 +47,8 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
+volatile int uxTopUsedPriority ;
+
 void blinkTask(void *arg)
 {
     cyhal_gpio_init(CYBSP_USER_LED,CYHAL_GPIO_DIR_OUTPUT,CYHAL_GPIO_DRIVE_STRONG,0);
@@ -54,6 +56,8 @@ void blinkTask(void *arg)
     for(;;)
     {
     	cyhal_gpio_toggle(CYBSP_USER_LED);
+    	printf("blink\n");
+
     	vTaskDelay(500);
     }
 }
