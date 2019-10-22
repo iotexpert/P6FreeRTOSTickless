@@ -8,6 +8,7 @@
 #include "task.h"
 
 volatile int uxTopUsedPriority ;
+TaskHandle_t blinkTaskHandle;
 
 void blinkTask(void *arg)
 {
@@ -16,8 +17,6 @@ void blinkTask(void *arg)
     for(;;)
     {
     	cyhal_gpio_toggle(CYBSP_USER_LED);
-    	printf("blink\n");
-
     	vTaskDelay(500);
     }
 }
@@ -38,7 +37,9 @@ int main(void)
 
     cy_retarget_io_init(CYBSP_DEBUG_UART_TX, CYBSP_DEBUG_UART_RX, CY_RETARGET_IO_BAUDRATE);
 
-    xTaskCreate(blinkTask, "blinkTask", 128,0,3, 0);
+    // Stack size in WORDs
+    // Idle task = priority 0
+    xTaskCreate(blinkTask, "blinkTask", configMINIMAL_STACK_SIZE,0 /* args */ ,0 /* priority */, &blinkTaskHandle);
     vTaskStartScheduler();
 
 
