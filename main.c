@@ -36,6 +36,7 @@ int main(void)
     __enable_irq();
 
     cy_retarget_io_init(CYBSP_DEBUG_UART_TX, CYBSP_DEBUG_UART_RX, CY_RETARGET_IO_BAUDRATE);
+    setvbuf(stdin, NULL, _IONBF, 0);
 
     // Stack size in WORDs
     // Idle task = priority 0
