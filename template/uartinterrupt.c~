@@ -38,4 +38,4 @@ void uartTask(void *arg)
 
 
 // In main
-// xTaskCreate(uartTask, "uartTask", configMINIMAL_STACK_SIZE,0 /* args */ ,1 /* priority */, 0 /* blinkTaskHandle */);
+// xTaskCreate(uartTask, "uartTask", configMINIMAL_STACK_SIZE,0 /* args */ ,1 /* priority */, &blinkTaskHandle);
