@@ -3,13 +3,14 @@
 // until something is in the UART Rx Fifo
 
 #include "semphr.h"
+#define UART_INT_PRIORITY 7
 
 SemaphoreHandle_t uartSemaphore;
 
 void uartCallback(void *callback_arg, cyhal_uart_event_t event)
 {
   BaseType_t xHigherPriorityTaskWoken;
-  cyhal_uart_enable_event(&cy_retarget_io_uart_obj,CYHAL_UART_IRQ_RX_NOT_EMPTY,7,false);
+  cyhal_uart_enable_event(&cy_retarget_io_uart_obj,CYHAL_UART_IRQ_RX_NOT_EMPTY,UART_INT_PRIORITY,false);
   xSemaphoreGiveFromISR(uartSemaphore,&xHigherPriorityTaskWoken);
 }
 
@@ -20,7 +21,7 @@ void uartTask(void *arg)
   uartSemaphore = xSemaphoreCreateCounting(5,0); // Max=5 - Initial=0
 
   cyhal_uart_register_callback(&cy_retarget_io_uart_obj, uartCallback, 0);
-  cyhal_uart_enable_event(&cy_retarget_io_uart_obj,CYHAL_UART_IRQ_RX_NOT_EMPTY,7,true);
+  cyhal_uart_enable_event(&cy_retarget_io_uart_obj,CYHAL_UART_IRQ_RX_NOT_EMPTY,UART_INT_PRIORITY,true);
 
   while(1)
     {
@@ -30,7 +31,11 @@ void uartTask(void *arg)
 	  char c = getchar();
 	  printf("C=%c\n",c);
 	}
-      cyhal_uart_enable_event(&cy_retarget_io_uart_obj,CYHAL_UART_IRQ_RX_NOT_EMPTY,7,true);
+      cyhal_uart_enable_event(&cy_retarget_io_uart_obj,CYHAL_UART_IRQ_RX_NOT_EMPTY,UART_INT_PRIORITY,true);
 
     }
 }
+
+
+// In main
+// xTaskCreate(uartTask, "uartTask", configMINIMAL_STACK_SIZE,0 /* args */ ,1 /* priority */, &blinkTaskHandle);
