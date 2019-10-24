@@ -12,7 +12,9 @@ void uartCallback(void *callback_arg, cyhal_uart_event_t event)
   BaseType_t xHigherPriorityTaskWoken;
   cyhal_uart_enable_event(&cy_retarget_io_uart_obj,CYHAL_UART_IRQ_RX_NOT_EMPTY,UART_INT_PRIORITY,false);
   xSemaphoreGiveFromISR(uartSemaphore,&xHigherPriorityTaskWoken);
+  portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
 }
+
 
 void uartTask(void *arg)
 {
@@ -23,16 +25,14 @@ void uartTask(void *arg)
   cyhal_uart_register_callback(&cy_retarget_io_uart_obj, uartCallback, 0);
   cyhal_uart_enable_event(&cy_retarget_io_uart_obj,CYHAL_UART_IRQ_RX_NOT_EMPTY,UART_INT_PRIORITY,true);
 
+  unsigned char c;
   while(1)
     {
       xSemaphoreTake( uartSemaphore,0xFFFFFFF );
-      while(cyhal_uart_readable(&cy_retarget_io_uart_obj))
-	{
-	  char c = getchar();
-	  printf("C=%c\n",c);
-	}
+      cyhal_uart_getc(&cy_retarget_io_uart_obj, &c, 10);
+      printf("C=%c\n",c);
+      Cy_SCB_ClearRxInterrupt(cy_retarget_io_uart_obj.base, CY_SCB_RX_INTR_NOT_EMPTY);
       cyhal_uart_enable_event(&cy_retarget_io_uart_obj,CYHAL_UART_IRQ_RX_NOT_EMPTY,UART_INT_PRIORITY,true);
-
     }
 }
 
