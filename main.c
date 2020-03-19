@@ -11,6 +11,7 @@
 volatile int uxTopUsedPriority ;
 TaskHandle_t blinkTaskHandle;
 SemaphoreHandle_t xSemaphore = NULL;
+#define BLINK_COUNT 6
 
 void buttonEvent(void *callback_arg, cyhal_gpio_event_t event)
 {
@@ -26,7 +27,7 @@ void blinkTask(void *arg)
 {
     cyhal_gpio_init(CYBSP_USER_LED,CYHAL_GPIO_DIR_OUTPUT,CYHAL_GPIO_DRIVE_STRONG,0);
 
-    int count=5;
+    int count=BLINK_COUNT;
     xSemaphore = xSemaphoreCreateBinary(  );
     for(;;)
     {
@@ -36,7 +37,7 @@ void blinkTask(void *arg)
     		vTaskDelay(1000);
     	}
     	xSemaphoreTake( xSemaphore,0xFFFFFFFF );
-    	count = 5;
+    	count = BLINK_COUNT;
 
     }
 }
