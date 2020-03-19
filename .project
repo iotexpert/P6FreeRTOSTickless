@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>mtb-example-psoc6-empty-app</name>
+	<name>P6FreeRTOSTickless</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -25,6 +25,4 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
-	<linkedResources>
-  </linkedResources>
 </projectDescription>

@@ -6,7 +6,7 @@
             "type": "cortex-debug",
             "request": "launch",
             "cwd": "${workspaceRoot}",
-            "executable": "build/CY8CKIT-062S2-43012/Debug/ARH-APP.elf",
+            "executable": "build/CY8CKIT-062S2-43012/Debug/P6FreeRTOSTickless.elf",
             "servertype": "openocd",
             "searchDir": [
                 "${workspaceRoot}",
@@ -57,7 +57,7 @@
             "type": "cortex-debug",
             "request": "attach",
             "cwd": "${workspaceRoot}",
-            "executable": "build/CY8CKIT-062S2-43012/Debug/ARH-APP.elf",
+            "executable": "build/CY8CKIT-062S2-43012/Debug/P6FreeRTOSTickless.elf",
             "servertype": "openocd",
             "searchDir": [
                 "${workspaceRoot}",
@@ -93,7 +93,7 @@
             "type": "cortex-debug",
             "request": "launch",
             "cwd": "${workspaceRoot}",
-            "executable": "build/CY8CKIT-062S2-43012/Debug/ARH-APP.elf",
+            "executable": "build/CY8CKIT-062S2-43012/Debug/P6FreeRTOSTickless.elf",
             "servertype": "openocd",
             "searchDir": [
                 "${workspaceRoot}",
@@ -114,7 +114,7 @@
             "type": "cortex-debug",
             "request": "launch",
             "cwd": "${workspaceRoot}",
-            "executable": "build/CY8CKIT-062S2-43012/Debug/ARH-APP.elf",
+            "executable": "build/CY8CKIT-062S2-43012/Debug/P6FreeRTOSTickless.elf",
             "servertype": "openocd",
             "searchDir": [
                 "${workspaceRoot}",
@@ -125,7 +125,7 @@
             ],
             "overrideLaunchCommands": [
                 "monitor psoc6 sflash_restrictions 1",
-                "monitor program {build/CY8CKIT-062S2-43012/Debug/ARH-APP.elf}",
+                "monitor program {build/CY8CKIT-062S2-43012/Debug/P6FreeRTOSTickless.elf}",
                 "monitor reset_config srst_only",
                 "monitor reset run",
                 "monitor psoc6.dap dpreg 0x04 0x00",

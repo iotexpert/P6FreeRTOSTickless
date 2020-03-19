@@ -66,11 +66,11 @@
 <booleanAttribute key="org.eclipse.cdt.dsf.gdb.UPDATE_THREADLIST_ON_SUSPEND" value="false"/>
 <intAttribute key="org.eclipse.cdt.launch.ATTR_BUILD_BEFORE_LAUNCH_ATTR" value="2"/>
 <stringAttribute key="org.eclipse.cdt.launch.COREFILE_PATH" value=""/>
-<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="${cy_prj_path}/build/CY8CKIT-062S2-43012/Debug/ARH-APP.hex"/>
-<stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="TestTickLess"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="${cy_prj_path}/build/CY8CKIT-062S2-43012/Debug/P6FreeRTOSTickless.hex"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="P6FreeRTOSTickless"/>
 <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="false"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/TestTickLess"/>
+<listEntry value="/P6FreeRTOSTickless"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="4"/>

@@ -33,7 +33,7 @@
 #TARGET=CY8CKIT-062-WIFI-BT
 TARGET=CY8CKIT-062S2-43012
 # Name of application (used to derive name of final linked file).
-APPNAME=ARH-APP
+APPNAME=P6FreeRTOSTickless
 
 # Name of toolchain to use. Options include:
 #
