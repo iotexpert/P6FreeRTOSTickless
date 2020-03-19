@@ -1,0 +1,10 @@
+{
+    // Added by build system's vscode target
+    "cortex-debug.armToolchainPath": "/Applications/ModusToolbox/tools_2.0/gcc-7.2.1/bin",
+    "cortex-debug.openocdPath": "/Applications/ModusToolbox/tools_2.0/openocd/bin/openocd",
+    "cortex-debug.JLinkGDBServerPath": "",
+    // Added by build system's vscode target
+    // Added by build system's vscode target
+    // Added by build system's vscode target
+    // Added by build system's vscode target
+}
