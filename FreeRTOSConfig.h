@@ -162,5 +162,9 @@ standard names. */
 
 #define configHEAP_ALLOCATION_SCHEME                (HEAP_ALLOCATION_TYPE4)
 
+/* Integrates the Tracealyzer recorder with FreeRTOS */
+#if ( configUSE_TRACE_FACILITY == 1 )
+#include "trcRecorder.h"
+#endif
 
 #endif /* FREERTOS_CONFIG_H */
