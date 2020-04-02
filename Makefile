@@ -30,8 +30,8 @@
 
 # Target board/hardware
 #TARGET=CY8CKIT-062-WIFI-BT
-#TARGET=CY8CKIT-062-WIFI-BT
-TARGET=CY8CKIT-062S2-43012
+TARGET=CY8CKIT-062-WIFI-BT
+#TARGET=CY8CKIT-062S2-43012
 # Name of application (used to derive name of final linked file).
 APPNAME=P6FreeRTOSTickless
 
